@@ -45,8 +45,21 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .iti { width: 100%; }
-        .iti__dropdown-content { color: #000; } 
         
+        /* === ФИКС ЦВЕТОВ В ВЫПАДАЮЩЕМ СПИСКЕ === */
+        .iti__country-list {
+            background-color: #ffffff !important;
+            color: #000000 !important; 
+            border: 1px solid #ccc;
+        }
+        .iti__country-name, 
+        .iti__dial-code {
+            color: #000000 !important;
+        }
+        .iti__country-list .iti__country.iti__highlight {
+            background-color: #f3f4f6 !important;
+        }
+
         .custom-radio:checked + div {
             border-color: #B91C1C;
             background-color: rgba(185, 28, 28, 0.1);
@@ -63,7 +76,6 @@
         }
         .overflow-hidden-body { overflow: hidden; }
         
-        /* СТИЛИ ОШИБКИ */
         .iti input.input-error { 
             border: 2px solid #EF4444 !important; 
             background-color: rgba(239, 68, 68, 0.1) !important;
@@ -93,7 +105,7 @@
         <!-- VIDEO -->
         <section class="text-center mb-16" data-aos="fade-up">
             <h1 class="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
-                С нуля до мастера окон за 30 дней: <br class="hidden sm:block"/> как зарабатывать от <span class="text-primary">3000€ в Европе?</span>
+                С нуля до мастера окон за 30 дней: <br class="hidden sm:block"/> как зарабатывать от <span class="text-primary">3&nbsp;000€ в месяц</span>
             </h1>
             <div class="video-container group relative cursor-pointer" id="videoWrapper">
                 <img src="https://img.youtube.com/vi/DweUs-QphXE/maxresdefault.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-opacity duration-300">
@@ -106,10 +118,10 @@
             </div>
         </section>
 
-        <!-- INFO BLOCK (НОВЫЙ ТЕКСТ) -->
+        <!-- INFO BLOCK -->
         <section class="max-w-3xl mx-auto mb-12 bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm text-center" data-aos="fade-up">
             <h3 class="text-xl sm:text-2xl font-bold mb-6 text-gray-900">
-                Прямо сейчас ты можешь получить бесплатную консультацию по старту в профессии мастера сервиса окон в Европе и выйти на доход от 3 000€ в месяц
+                Прямо сейчас ты можешь получить бесплатную консультацию по старту в профессии мастера сервиса окон в Европе и выйти на доход от <span class="text-primary">3&nbsp;000€ в месяц</span>
             </h3>
             
             <div class="text-left max-w-xl mx-auto">
@@ -181,8 +193,8 @@
                 <div class="space-y-3">
                     <p class="font-medium text-lg">2. Какой у вас ключевой запрос на консультацию?</p>
                     <label class="block cursor-pointer group"><input type="radio" name="q2" value="Стратегия старта" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Построить стратегию старта в профессии</span></div></label>
-                    <label class="block cursor-pointer group"><input type="radio" name="q2" value="Работа в Европе" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Как найти работу в Европе</span></div></label>
-                    <label class="block cursor-pointer group"><input type="radio" name="q2" value="Свой бизнес" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Открытие собственного сервиса окон</span></div></label>
+                    <label class="block cursor-pointer group"><input type="radio" name="q2" value="Работа в Европе" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Ищу работу в найме в Европе</span></div></label>
+                    <label class="block cursor-pointer group"><input type="radio" name="q2" value="Свой бизнес" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Хочу открыть бизнес по сервису окон</span></div></label>
                 </div>
 
                 <!-- Q3 (QUESTION) -->
@@ -236,13 +248,15 @@
         AOS.init({ once: true, offset: 50 });
         lucide.createIcons();
 
-        // VIDEO CONFIG
+        // 1. VIDEO CONFIG (DYNAMIC CREATE)
         const videoWrapper = document.getElementById('videoWrapper');
         const YOUTUBE_VIDEO_ID = 'DweUs-QphXE'; 
 
         videoWrapper.addEventListener('click', function() {
-            const embedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0`;
             const iframe = document.createElement('iframe');
+            
+            const embedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0`;
+            
             iframe.setAttribute('src', embedUrl);
             iframe.setAttribute('title', 'YouTube video player');
             iframe.setAttribute('frameborder', '0');
@@ -250,26 +264,26 @@
             iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
             iframe.setAttribute('allowfullscreen', '');
             iframe.setAttribute('class', 'absolute inset-0 w-full h-full rounded-xl');
+            
             this.innerHTML = '';
             this.appendChild(iframe);
         });
 
-        // PHONE CONFIG (AUTO GEO with ipinfo.io - Надежный сервис)
+        // 2. PHONE CONFIG (AUTO GEO + IPINFO)
         const input = document.querySelector("#phone");
         const iti = window.intlTelInput(input, {
             initialCountry: "auto",
             geoIpLookup: function(callback) {
-                fetch("https://ipinfo.io/json?token=63d63b27672224") // Бесплатный токен для теста
+                fetch("https://ipinfo.io/json?token=63d63b27672224")
                     .then(res => res.json())
                     .then(data => callback(data.country))
-                    .catch(() => callback("ua")); // Фолбек на Украину
+                    .catch(() => callback("ua"));
             },
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-            separateDialCode: true, 
-            autoPlaceholder: "aggressive"
+            separateDialCode: true, autoPlaceholder: "aggressive"
         });
 
-        // FORM LOGIC
+        // 3. FORM LOGIC
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbytM2jE-_R4rcARLQgHKH40wzYxw0la10nFWmFsBqWtMyLg5Q-GscBu2CnkZ_fLJ7wq/exec";
         
         const form = document.getElementById('quizForm');
@@ -307,6 +321,7 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // ВАЛИДАЦИЯ
             if (!iti.isValidNumber()) { 
                 input.classList.add('input-error');
                 phoneError.style.display = 'block';
@@ -318,6 +333,7 @@
             submitBtn.disabled = true;
             submitBtn.innerText = "ОТПРАВКА...";
 
+            // ДАННЫЕ
             const formData = {
                 targetSheet: 'Leads Lesson', 
                 name: document.getElementById('name').value,

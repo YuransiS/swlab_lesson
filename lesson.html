@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SW.LAB - Бесплатный урок</title>
+    <meta name="theme-color" content="#B91C1C">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#B91C1C', 
+                        secondary: '#1F2937', 
+                        darkform: '#111111', 
+                        inputbg: '#1F1F1F', 
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-in': 'bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+                    },
+                    keyframes: {
+                        bounceIn: {
+                            '0%': { transform: 'scale(0.3)', opacity: '0' },
+                            '50%': { transform: 'scale(1.05)', opacity: '1' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .iti { width: 100%; }
+        .iti__dropdown-content { color: #000; } 
+        
+        .custom-radio:checked + div {
+            border-color: #B91C1C;
+            background-color: rgba(185, 28, 28, 0.1);
+        }
+        .custom-radio:checked + div .radio-dot {
+            background-color: #B91C1C;
+            border-color: #B91C1C;
+        }
+
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            background: #000;
+        }
+        
+        .overflow-hidden-body { overflow: hidden; }
+        
+        .iti input.input-error { 
+            border: 2px solid #EF4444 !important; 
+            background-color: rgba(239, 68, 68, 0.1) !important;
+            color: #EF4444 !important;
+        }
+        .error-message { 
+            color: #EF4444; 
+            font-size: 0.875rem; 
+            margin-top: 0.5rem; 
+            display: none; 
+            font-weight: 600;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+    <header class="bg-white py-4 shadow-sm border-b border-gray-100 sticky top-0 z-40">
+        <div class="max-w-4xl mx-auto px-4 flex justify-between items-center">
+            <span class="font-extrabold text-2xl tracking-tighter text-secondary">SW<span class="text-primary">.</span>LAB</span>
+            <a href="#consultation" class="text-sm font-bold text-primary border border-red-200 bg-red-50 hover:bg-red-100 px-4 py-2 rounded-full transition-colors">Записаться</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 pb-20 pt-8">
+        
+        <!-- VIDEO SECTION -->
+        <section class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+                С нуля до мастера окон за 30 дней: <br class="hidden sm:block"/> как зарабатывать от <span class="text-primary">3000€ в Европе?</span>
+            </h1>
+            
+            <div class="video-container group relative cursor-pointer" id="videoWrapper">
+                <!-- ОБЛОЖКА -->
+                <img src="https://img.youtube.com/vi/DweUs-QphXE/maxresdefault.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-opacity duration-300">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center pl-1 shadow-xl group-hover:scale-110 transition-transform duration-300 animate-pulse-slow">
+                        <i data-lucide="play" class="w-8 h-8 text-white fill-current"></i>
+                    </div>
+                </div>
+                <div class="absolute bottom-4 w-full text-center text-white/80 text-sm font-medium">Нажмите для просмотра</div>
+            </div>
+        </section>
+
+        <!-- INFO BLOCK -->
+        <section class="max-w-3xl mx-auto mb-12 bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm" data-aos="fade-up">
+            <h3 class="text-xl font-bold mb-4">Вы в одном шаге от того, чтобы получить бесплатную консультацию по старту в профессии мастера обслуживания окон в Европе и выйти на доход от 3 000€ в месяц</h3>
+            <p class="font-semibold text-gray-800 mb-2">На консультации мы:</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+                <li>разберём Вашу ситуацию и подскажем самый быстрый путь входа в профессию</li>
+                <li>объясним, какие навыки нужны и как их можно освоить за 30 дней</li>
+                <li>расскажем про реальные примеры учеников и уровней дохода</li>
+                <li>ответим на все вопросы и составим для Вас чёткий план действий</li>
+            </ul>
+            <p class="text-sm text-gray-500 italic border-l-4 border-primary pl-4">
+                Пожалуйста, заполните форму внимательно и честно — так мы сможем подготовиться и дать Вам максимально полезные рекомендации без воды⚡
+                <br>После отправки заявки мы свяжемся с Вами в ближайшее время.
+            </p>
+        </section>
+
+        <!-- FORM -->
+        <section id="consultation" class="max-w-lg mx-auto bg-darkform rounded-2xl shadow-2xl overflow-hidden text-white" data-aos="fade-up">
+            <div class="p-8 pb-4 text-center border-b border-gray-800">
+                <h2 class="text-2xl font-black uppercase text-white leading-tight mb-2">Заявка на консультацию</h2>
+                <p class="text-gray-400 text-sm mt-2">Заполните форму ниже</p>
+            </div>
+
+            <form id="quizForm" class="p-6 sm:p-8 space-y-6">
+                <!-- Контакты -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Ваше имя*</label>
+                        <input type="text" id="name" required class="block w-full rounded-lg bg-inputbg border border-gray-700 text-white py-3 px-4 focus:ring-primary focus:border-primary transition-colors" placeholder="Иван">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Номер телефона*</label>
+                        <input type="tel" id="phone" required class="block w-full rounded-lg bg-inputbg border border-gray-700 text-white py-3 px-4 focus:ring-primary focus:border-primary">
+                        <div id="phone-error" class="error-message">Пожалуйста, введите корректный номер телефона</div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Ваш ник в телеграм (через @)*</label>
+                        <input type="text" id="telegram" required class="block w-full rounded-lg bg-inputbg border border-gray-700 text-white py-3 px-4 focus:ring-primary focus:border-primary" placeholder="@username">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Укажите город, в котором сейчас находитесь*</label>
+                        <input type="text" id="city" required class="block w-full rounded-lg bg-inputbg border border-gray-700 text-white py-3 px-4 focus:ring-primary focus:border-primary" placeholder="Варшава">
+                    </div>
+                </div>
+
+                <hr class="border-gray-800">
+
+                <!-- Q1 (JOB) -->
+                <div class="space-y-2">
+                    <p class="font-medium text-lg">1. Кем вы сейчас работаете?</p>
+                    <input type="text" id="job" required class="block w-full rounded-lg bg-inputbg border border-gray-700 text-white py-3 px-4 focus:ring-primary focus:border-primary" placeholder="Ваша текущая профессия">
+                </div>
+
+                <!-- Q2 (GOAL) -->
+                <div class="space-y-3">
+                    <p class="font-medium text-lg">2. Какой у вас ключевой запрос на консультацию?</p>
+                    <label class="block cursor-pointer group"><input type="radio" name="q2" value="Стратегия старта" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Построить стратегию старта в профессии</span></div></label>
+                    <label class="block cursor-pointer group"><input type="radio" name="q2" value="Работа в Европе" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Как найти работу в Европе</span></div></label>
+                    <label class="block cursor-pointer group"><input type="radio" name="q2" value="Свой бизнес" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Открытие собственного сервиса окон</span></div></label>
+                </div>
+
+                <!-- Q3 (QUESTION) -->
+                <div class="space-y-2">
+                    <p class="font-medium text-lg">3. Что хотите получить или узнать на консультации?</p>
+                    <textarea id="q3" rows="3" class="block w-full rounded-lg bg-inputbg border border-gray-700 text-white py-3 px-4 focus:ring-primary focus:border-primary placeholder-gray-600" placeholder="Напишите свой вопрос..."></textarea>
+                </div>
+
+                <!-- Q4 (READINESS) -->
+                <div class="space-y-3">
+                    <p class="font-medium text-lg">4. Насколько вы готовы инвестировать время и ресурсы?</p>
+                    <label class="block cursor-pointer group"><input type="radio" name="q4" value="Готов на 100%" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Готов(-а) действовать на 100%</span></div></label>
+                    <label class="block cursor-pointer group"><input type="radio" name="q4" value="Нужна уверенность" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Нужна уверенность в программе</span></div></label>
+                    <label class="block cursor-pointer group"><input type="radio" name="q4" value="Просто смотрю" class="custom-radio hidden"><div class="flex items-center p-3 rounded-lg border border-gray-700 bg-inputbg group-hover:border-gray-500 transition-all"><div class="radio-dot w-4 h-4 rounded-full border-2 border-gray-500 mr-3 shrink-0 bg-transparent"></div><span class="text-gray-300">Просто смотрю варианты</span></div></label>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" id="submitBtn" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg text-lg uppercase tracking-wide shadow-lg shadow-red-900/50 transition-all transform active:scale-95">Хочу на консультацію</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-gray-50 border-t border-gray-200 py-8 text-center">
+        <span class="font-extrabold text-xl text-secondary">SW<span class="text-primary">.</span>LAB</span>
+        <p class="text-gray-400 text-sm mt-2">© 2026 Все права защищены</p>
+    </footer>
+
+    <!-- POPUP -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity opacity-0" id="successBackdrop"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center">
+                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:w-full sm:max-w-sm opacity-0 scale-95" id="successPanel">
+                    <div class="p-8 text-center">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-6 animate-bounce-in">
+                            <i data-lucide="check" class="h-8 w-8 text-green-600 stroke-[3]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold leading-6 text-gray-900 mb-3">Заявка принята!</h3>
+                        <p class="text-sm text-gray-500 mb-6">Спасибо за ваши ответы. Наш менеджер уже обрабатывает информацию и свяжется с вами в ближайшее время.</p>
+                        <button type="button" onclick="closeSuccessModal()" class="w-full inline-flex justify-center rounded-lg bg-gray-900 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-black transition-colors">Понятно</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50 });
+        lucide.createIcons();
+
+        // 1. VIDEO CONFIG (DYNAMIC CREATE)
+        const videoWrapper = document.getElementById('videoWrapper');
+        const YOUTUBE_VIDEO_ID = 'DweUs-QphXE'; 
+
+        videoWrapper.addEventListener('click', function() {
+            // Создаем IFRAME руками по клику (как ты просил)
+            const iframe = document.createElement('iframe');
+            
+            // Параметры для стабильной работы
+            const embedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0`;
+            
+            iframe.setAttribute('src', embedUrl);
+            iframe.setAttribute('title', 'YouTube video player');
+            iframe.setAttribute('frameborder', '0');
+            // Важные права для плеера
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('class', 'absolute inset-0 w-full h-full rounded-xl');
+            
+            // Очищаем обложку и вставляем плеер
+            this.innerHTML = '';
+            this.appendChild(iframe);
+        });
+
+        // 2. PHONE CONFIG
+        const input = document.querySelector("#phone");
+        const iti = window.intlTelInput(input, {
+            initialCountry: "ua", 
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+            separateDialCode: true, autoPlaceholder: "aggressive"
+        });
+
+        // 3. FORM LOGIC
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbytM2jE-_R4rcARLQgHKH40wzYxw0la10nFWmFsBqWtMyLg5Q-GscBu2CnkZ_fLJ7wq/exec";
+        
+        const form = document.getElementById('quizForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successModal = document.getElementById('successModal');
+        const successBackdrop = document.getElementById('successBackdrop');
+        const successPanel = document.getElementById('successPanel');
+        const phoneError = document.getElementById('phone-error');
+
+        function openSuccessModal() {
+            successModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden-body');
+            setTimeout(() => {
+                successBackdrop.classList.remove('opacity-0');
+                successPanel.classList.remove('opacity-0', 'scale-95');
+                successPanel.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeSuccessModal() {
+            successBackdrop.classList.add('opacity-0');
+            successPanel.classList.remove('scale-100');
+            successPanel.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                successModal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden-body');
+            }, 300);
+        }
+
+        input.addEventListener('input', () => {
+            input.classList.remove('input-error');
+            phoneError.style.display = 'none';
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // ВАЛИДАЦИЯ ТЕЛЕФОНА
+            if (!iti.isValidNumber()) { 
+                input.classList.add('input-error');
+                phoneError.style.display = 'block';
+                input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return; 
+            }
+
+            const originalText = submitBtn.innerText;
+            submitBtn.disabled = true;
+            submitBtn.innerText = "ОТПРАВКА...";
+
+            const formData = {
+                targetSheet: 'Leads Lesson', 
+                name: document.getElementById('name').value,
+                phone: iti.getNumber(),
+                telegram: document.getElementById('telegram').value,
+                city: document.getElementById('city').value,
+                job: document.getElementById('job').value,
+                q2: document.querySelector('input[name="q2"]:checked')?.value || '-',
+                q3: document.getElementById('q3').value || '-',
+                q4: document.querySelector('input[name="q4"]:checked')?.value || '-',
+                utm: window.location.search || 'no_utm'
+            };
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST', mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+                form.reset();
+                openSuccessModal();
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Ошибка отправки.");
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalText;
+            });
+        });
+    </script>
+</body>
+</html>

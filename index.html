@@ -61,9 +61,9 @@
             border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             background: #000;
         }
-        
         .overflow-hidden-body { overflow: hidden; }
         
+        /* СТИЛИ ОШИБКИ */
         .iti input.input-error { 
             border: 2px solid #EF4444 !important; 
             background-color: rgba(239, 68, 68, 0.1) !important;
@@ -90,14 +90,12 @@
 
     <main class="max-w-4xl mx-auto px-4 pb-20 pt-8">
         
-        <!-- VIDEO SECTION -->
+        <!-- VIDEO -->
         <section class="text-center mb-16" data-aos="fade-up">
             <h1 class="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
                 С нуля до мастера окон за 30 дней: <br class="hidden sm:block"/> как зарабатывать от <span class="text-primary">3000€ в Европе?</span>
             </h1>
-            
             <div class="video-container group relative cursor-pointer" id="videoWrapper">
-                <!-- ОБЛОЖКА -->
                 <img src="https://img.youtube.com/vi/DweUs-QphXE/maxresdefault.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-opacity duration-300">
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center pl-1 shadow-xl group-hover:scale-110 transition-transform duration-300 animate-pulse-slow">
@@ -108,20 +106,38 @@
             </div>
         </section>
 
-        <!-- INFO BLOCK -->
-        <section class="max-w-3xl mx-auto mb-12 bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm" data-aos="fade-up">
-            <h3 class="text-xl font-bold mb-4">Вы в одном шаге от того, чтобы получить бесплатную консультацию по старту в профессии мастера обслуживания окон в Европе и выйти на доход от 3 000€ в месяц</h3>
-            <p class="font-semibold text-gray-800 mb-2">На консультации мы:</p>
-            <ul class="list-disc pl-5 space-y-2 text-gray-600 mb-6">
-                <li>разберём Вашу ситуацию и подскажем самый быстрый путь входа в профессию</li>
-                <li>объясним, какие навыки нужны и как их можно освоить за 30 дней</li>
-                <li>расскажем про реальные примеры учеников и уровней дохода</li>
-                <li>ответим на все вопросы и составим для Вас чёткий план действий</li>
-            </ul>
-            <p class="text-sm text-gray-500 italic border-l-4 border-primary pl-4">
+        <!-- INFO BLOCK (НОВЫЙ ТЕКСТ) -->
+        <section class="max-w-3xl mx-auto mb-12 bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm text-center" data-aos="fade-up">
+            <h3 class="text-xl sm:text-2xl font-bold mb-6 text-gray-900">
+                Прямо сейчас ты можешь получить бесплатную консультацию по старту в профессии мастера сервиса окон в Европе и выйти на доход от 3 000€ в месяц
+            </h3>
+            
+            <div class="text-left max-w-xl mx-auto">
+                <p class="font-semibold text-gray-800 mb-3">На консультации мы:</p>
+                <ul class="space-y-3 text-gray-600 mb-8">
+                    <li class="flex items-start gap-2">
+                        <div class="min-w-[6px] h-[6px] rounded-full bg-primary mt-2"></div>
+                        <span>разберём Вашу ситуацию и подскажем самый быстрый путь входа в профессию</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <div class="min-w-[6px] h-[6px] rounded-full bg-primary mt-2"></div>
+                        <span>объясним, какие навыки нужны и как их можно освоить за 30 дней</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <div class="min-w-[6px] h-[6px] rounded-full bg-primary mt-2"></div>
+                        <span>расскажем про реальные примеры учеников и уровней дохода</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <div class="min-w-[6px] h-[6px] rounded-full bg-primary mt-2"></div>
+                        <span>ответим на все вопросы и составим для Вас чёткий план действий</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="bg-red-50 border border-red-100 rounded-xl p-4 text-sm text-gray-700">
                 Пожалуйста, заполните форму внимательно и честно — так мы сможем подготовиться и дать Вам максимально полезные рекомендации без воды⚡
-                <br>После отправки заявки мы свяжемся с Вами в ближайшее время.
-            </p>
+                <br><b>После отправки заявки мы свяжемся с Вами в ближайшее время.</b>
+            </div>
         </section>
 
         <!-- FORM -->
@@ -184,7 +200,7 @@
                 </div>
 
                 <div class="pt-4">
-                    <button type="submit" id="submitBtn" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg text-lg uppercase tracking-wide shadow-lg shadow-red-900/50 transition-all transform active:scale-95">Хочу на консультацию</button>
+                    <button type="submit" id="submitBtn" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg text-lg uppercase tracking-wide shadow-lg shadow-red-900/50 transition-all transform active:scale-95">ХОЧУ НА КОНСУЛЬТАЦИЮ</button>
                 </div>
             </form>
         </section>
@@ -220,40 +236,40 @@
         AOS.init({ once: true, offset: 50 });
         lucide.createIcons();
 
-        // 1. VIDEO CONFIG (DYNAMIC CREATE)
+        // VIDEO CONFIG
         const videoWrapper = document.getElementById('videoWrapper');
         const YOUTUBE_VIDEO_ID = 'DweUs-QphXE'; 
 
         videoWrapper.addEventListener('click', function() {
-            // Создаем IFRAME руками по клику (как ты просил)
-            const iframe = document.createElement('iframe');
-            
-            // Параметры для стабильной работы
             const embedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0`;
-            
+            const iframe = document.createElement('iframe');
             iframe.setAttribute('src', embedUrl);
             iframe.setAttribute('title', 'YouTube video player');
             iframe.setAttribute('frameborder', '0');
-            // Важные права для плеера
             iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
             iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
             iframe.setAttribute('allowfullscreen', '');
             iframe.setAttribute('class', 'absolute inset-0 w-full h-full rounded-xl');
-            
-            // Очищаем обложку и вставляем плеер
             this.innerHTML = '';
             this.appendChild(iframe);
         });
 
-        // 2. PHONE CONFIG
+        // PHONE CONFIG (AUTO GEO with ipinfo.io - Надежный сервис)
         const input = document.querySelector("#phone");
         const iti = window.intlTelInput(input, {
-            initialCountry: "ua", 
+            initialCountry: "auto",
+            geoIpLookup: function(callback) {
+                fetch("https://ipinfo.io/json?token=63d63b27672224") // Бесплатный токен для теста
+                    .then(res => res.json())
+                    .then(data => callback(data.country))
+                    .catch(() => callback("ua")); // Фолбек на Украину
+            },
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-            separateDialCode: true, autoPlaceholder: "aggressive"
+            separateDialCode: true, 
+            autoPlaceholder: "aggressive"
         });
 
-        // 3. FORM LOGIC
+        // FORM LOGIC
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbytM2jE-_R4rcARLQgHKH40wzYxw0la10nFWmFsBqWtMyLg5Q-GscBu2CnkZ_fLJ7wq/exec";
         
         const form = document.getElementById('quizForm');
@@ -291,7 +307,6 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // ВАЛИДАЦИЯ ТЕЛЕФОНА
             if (!iti.isValidNumber()) { 
                 input.classList.add('input-error');
                 phoneError.style.display = 'block';
@@ -337,4 +352,3 @@
     </script>
 </body>
 </html>
-

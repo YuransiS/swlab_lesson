@@ -269,15 +269,16 @@
             this.appendChild(iframe);
         });
 
-        // 2. PHONE CONFIG (AUTO GEO + IPINFO)
+        // 2. PHONE CONFIG (NEW GEO: geojs.io - FREE)
         const input = document.querySelector("#phone");
         const iti = window.intlTelInput(input, {
             initialCountry: "auto",
             geoIpLookup: function(callback) {
-                fetch("https://ipinfo.io/json?token=63d63b27672224")
+                // ИСПОЛЬЗУЕМ БЕСПЛАТНЫЙ СЕРВИС
+                fetch("https://get.geojs.io/v1/ip/country.json")
                     .then(res => res.json())
                     .then(data => callback(data.country))
-                    .catch(() => callback("ua"));
+                    .catch(() => callback("pl")); // ЗАПАСНОЙ ВАРИАНТ: ПОЛЬША
             },
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
             separateDialCode: true, autoPlaceholder: "aggressive"

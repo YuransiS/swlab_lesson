@@ -248,14 +248,15 @@
         AOS.init({ once: true, offset: 50 });
         lucide.createIcons();
 
-        // 1. VIDEO CONFIG (DYNAMIC CREATE)
+// 1. VIDEO CONFIG (DYNAMIC CREATE)
         const videoWrapper = document.getElementById('videoWrapper');
         const YOUTUBE_VIDEO_ID = 'DweUs-QphXE'; 
 
         videoWrapper.addEventListener('click', function() {
             const iframe = document.createElement('iframe');
             
-            const embedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0`;
+            // ВОТ ТУТ БЫЛА ОШИБКА, ТЕПЕРЬ ИСПРАВЛЕНО:
+            const embedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1`;
             
             iframe.setAttribute('src', embedUrl);
             iframe.setAttribute('title', 'YouTube video player');
@@ -369,3 +370,4 @@
     </script>
 </body>
 </html>
+
